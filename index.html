@@ -8,97 +8,128 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Poppins,sans-serif}
 
-body{background:#f7f8fc;color:#333}
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Poppins,sans-serif;
+}
+
+body{
+background:#f5f7fb;
+color:#333;
+}
 
 header{
 background:white;
 padding:15px;
 text-align:center;
-box-shadow:0 2px 10px rgba(0,0,0,.1);
+box-shadow:0 2px 10px rgba(0,0,0,0.08);
 }
 
-header img{height:60px}
+header img{
+height:60px;
+margin-bottom:5px;
+}
 
-.tagline{font-size:14px;color:#666}
+header h1{
+font-size:22px;
+}
+
+.tagline{
+font-size:14px;
+color:#777;
+}
 
 .hero{
 width:100%;
-height:250px;
-background:url("https://i.ibb.co/mCDcJT7q/Gemini-Generated-Image-hcibhehcibhehcib.png") center/cover;
+height:260px;
+background:url("https://i.postimg.cc/3wrMW0w9/Gemini-Generated-Image-hcibhehcibhehcib.png") center/cover;
 }
 
 .filters{
 display:flex;
-gap:10px;
-padding:15px;
-justify-content:center;
 flex-wrap:wrap;
+gap:10px;
+justify-content:center;
+padding:15px;
 }
 
 .filters button{
-padding:8px 14px;
 border:none;
-background:#eee;
+background:#e6e9f2;
+padding:8px 14px;
 border-radius:20px;
 cursor:pointer;
+font-size:13px;
 }
 
-.filters button.active{background:#ff6b6b;color:white}
+.filters button.active{
+background:#2d6cdf;
+color:white;
+}
 
 .products{
+padding:15px;
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
 gap:15px;
-padding:15px;
 }
 
 .card{
 background:white;
 border-radius:12px;
 padding:10px;
-box-shadow:0 2px 8px rgba(0,0,0,.08);
+box-shadow:0 2px 8px rgba(0,0,0,0.08);
 text-align:center;
 }
 
 .card img{
 width:100%;
-border-radius:10px;
-height:160px;
+height:170px;
 object-fit:cover;
+border-radius:8px;
 }
 
-.card h4{font-size:14px;margin:8px 0}
+.card h3{
+font-size:14px;
+margin-top:6px;
+}
 
-.price{color:#ff6b6b;font-weight:600}
+.price{
+color:#e63946;
+font-weight:600;
+margin-top:4px;
+}
 
-button.add{
-margin-top:5px;
-padding:8px;
+.card button{
+margin-top:6px;
 width:100%;
 border:none;
 background:#2d6cdf;
 color:white;
-border-radius:8px;
+padding:8px;
+border-radius:6px;
 cursor:pointer;
+font-size:13px;
 }
 
-.cart-btn{
+.cart-button{
 position:fixed;
 bottom:20px;
 right:20px;
-background:#2d6cdf;
-color:white;
-border-radius:50%;
 width:60px;
 height:60px;
+background:#2d6cdf;
+color:white;
 display:flex;
 align-items:center;
 justify-content:center;
+border-radius:50%;
 font-size:22px;
 cursor:pointer;
-box-shadow:0 5px 15px rgba(0,0,0,.2);
+box-shadow:0 6px 18px rgba(0,0,0,0.2);
 }
 
 .cart-count{
@@ -108,7 +139,7 @@ right:-5px;
 background:red;
 color:white;
 font-size:12px;
-padding:3px 6px;
+padding:3px 7px;
 border-radius:50%;
 }
 
@@ -119,45 +150,48 @@ top:0;
 width:320px;
 height:100%;
 background:white;
-box-shadow:-2px 0 15px rgba(0,0,0,.2);
 padding:15px;
+box-shadow:-2px 0 15px rgba(0,0,0,0.15);
 overflow:auto;
 transition:.3s;
-z-index:999;
+z-index:1000;
 }
 
-.cart.open{right:0}
+.cart.open{
+right:0;
+}
 
 .cart-item{
 display:flex;
 justify-content:space-between;
-margin:10px 0;
+margin-bottom:12px;
 font-size:14px;
 }
 
 .qty button{
+margin:0 2px;
 padding:2px 6px;
-margin:0 3px;
 }
 
 .total{
-font-weight:bold;
+font-weight:600;
 margin:10px 0;
 }
 
-.checkout input,.checkout textarea{
+.checkout input,
+.checkout textarea{
 width:100%;
-margin:5px 0;
+margin:6px 0;
 padding:8px;
-border:1px solid #ccc;
 border-radius:6px;
+border:1px solid #ccc;
 }
 
 .checkout button{
 width:100%;
+border:none;
 background:#28a745;
 color:white;
-border:none;
 padding:10px;
 border-radius:8px;
 margin-top:8px;
@@ -174,106 +208,156 @@ padding:12px 16px;
 border-radius:30px;
 text-decoration:none;
 font-size:14px;
-box-shadow:0 5px 15px rgba(0,0,0,.2);
+box-shadow:0 6px 18px rgba(0,0,0,0.2);
 }
+
+footer{
+text-align:center;
+padding:20px;
+font-size:13px;
+color:#777;
+}
+
 </style>
 </head>
 
 <body>
 
 <header>
-<img src="https://i.ibb.co/6RdZ1ZQZ/Whats-App-Image-2026-03-08-at-4-42-29-PM.jpg">
-<h2>SHANDILYA ENTERPRISES</h2>
-<div class="tagline">Beautiful Poshaks for Your Beloved Laddu Gopal</div>
+
+<img src="https://i.postimg.cc/wjh4Xqrk/Whats-App-Image-2026-03-08-at-4-42-29-PM.jpg">
+
+<h1>SHANDILYA ENTERPRISES</h1>
+
+<div class="tagline">
+Beautiful Poshaks for Your Beloved Laddu Gopal
+</div>
+
 </header>
 
 <div class="hero"></div>
 
 <div class="filters">
+
 <button class="active" onclick="filterProducts('all')">All</button>
 <button onclick="filterProducts('Laddu Gopal Poshak')">Laddu Gopal Poshak</button>
+
 </div>
 
 <div class="products" id="productList"></div>
 
-<div class="cart-btn" onclick="toggleCart()">
+<div class="cart-button" onclick="toggleCart()">
 🛒
 <span class="cart-count" id="cartCount">0</span>
 </div>
 
 <div class="cart" id="cart">
-<h3>Your Cart</h3>
+
+<h2>Your Cart</h2>
+
 <div id="cartItems"></div>
-<div class="total" id="total"></div>
 
-<form class="checkout" action="https://formspree.io/f/myknzbyz" method="POST" onsubmit="prepareOrder()">
+<div class="total" id="totalPrice"></div>
 
-<input name="name" placeholder="Customer Name" required>
+<form class="checkout"
+action="https://formspree.io/f/myknzbyz"
+method="POST"
+onsubmit="prepareOrder()">
+
+<input name="customer_name" placeholder="Customer Name" required>
+
 <input name="phone" placeholder="Phone Number" required>
+
 <textarea name="address" placeholder="Delivery Address" required></textarea>
+
 <textarea name="instructions" placeholder="Special Instructions"></textarea>
 
-<input type="hidden" name="order_details" id="orderDetails">
+<input type="hidden" name="order_summary" id="orderSummary">
 
 <button type="submit">Place Order</button>
 
 </form>
+
 </div>
 
-<a class="whatsapp" href="https://wa.me/919761133303" target="_blank">
+<a class="whatsapp"
+href="https://wa.me/919761133303"
+target="_blank">
 Chat on WhatsApp
 </a>
+
+<footer>
+
+Lal Kurti, Chotta Bazar, Meerut Cantt, 250001  
+<br>
+Phone: +91 9761133303
+
+</footer>
 
 <script>
 
 const products=[
+
 {
 name:"Yellow Red Floral Krishna Ji Poshak",
 price:199,
-cat:"Laddu Gopal Poshak",
-img:"https://i.ibb.co/JRvyfyNN/Whats-App-Image-2026-03-08-at-3-57-18-PM.jpg"
+category:"Laddu Gopal Poshak",
+img:"https://i.postimg.cc/76PRPFKP/Yellowred.jpg"
 },
+
 {
 name:"Multicolor Layered Krishna Ji Poshak",
 price:219,
-cat:"Laddu Gopal Poshak",
-img:"https://i.ibb.co/vxxyxQqK/Whats-App-Image-2026-03-08-at-3-57-19-PM-1.jpg"
+category:"Laddu Gopal Poshak",
+img:"https://i.postimg.cc/fRXp8j34/whitebluered.jpg"
 },
+
 {
 name:"Red White Designer Krishna Ji Poshak",
 price:199,
-cat:"Laddu Gopal Poshak",
-img:"https://i.ibb.co/BVLFMQ5X/Whats-App-Image-2026-03-08-at-3-57-19-PM-2.jpg"
+category:"Laddu Gopal Poshak",
+img:"https://i.postimg.cc/k4wkxJ26/redwhite.jpg"
 },
+
 {
 name:"Sky Blue Lotus Style Krishna Ji Poshak",
 price:189,
-cat:"Laddu Gopal Poshak",
-img:"https://i.ibb.co/r2tHWCQJ/Whats-App-Image-2026-03-08-at-3-57-19-PM-3.jpg"
+category:"Laddu Gopal Poshak",
+img:"https://i.postimg.cc/3J6QSxn3/bluewhite.jpg"
 },
+
 {
 name:"Pink Flower Premium Krishna Ji Poshak",
 price:209,
-cat:"Laddu Gopal Poshak",
-img:"https://i.ibb.co/xS2X7pdJ/Whats-App-Image-2026-03-08-at-3-57-19-PM.jpg"
+category:"Laddu Gopal Poshak",
+img:"https://i.postimg.cc/5yTK36b2/pinkonly.jpg"
 }
+
 ]
 
 let cart=JSON.parse(localStorage.getItem("cart"))||[]
 
 function renderProducts(list){
+
 const container=document.getElementById("productList")
 container.innerHTML=""
 
 list.forEach((p,i)=>{
 
 container.innerHTML+=`
+
 <div class="card">
+
 <img src="${p.img}" loading="lazy" alt="${p.name}">
-<h4>${p.name}</h4>
+
+<h3>${p.name}</h3>
+
 <div class="price">₹${p.price}</div>
-<button class="add" onclick="addCart(${i})">Add to Cart</button>
+
+<button onclick="addToCart(${i})">Add to Cart</button>
+
 </div>
+
 `
 
 })
@@ -281,34 +365,46 @@ container.innerHTML+=`
 }
 
 function filterProducts(cat){
-document.querySelectorAll(".filters button").forEach(b=>b.classList.remove("active"))
+
+document.querySelectorAll(".filters button")
+.forEach(btn=>btn.classList.remove("active"))
+
 event.target.classList.add("active")
 
-if(cat=="all") renderProducts(products)
-else renderProducts(products.filter(p=>p.cat==cat))
+if(cat==="all"){
+renderProducts(products)
+}else{
+renderProducts(products.filter(p=>p.category===cat))
 }
 
-function addCart(i){
+}
 
-const p=products[i]
+function addToCart(i){
 
-const found=cart.find(x=>x.name==p.name)
+const item=products[i]
 
-if(found) found.qty++
-else cart.push({...p,qty:1})
+const existing=cart.find(x=>x.name===item.name)
+
+if(existing){
+existing.qty++
+}else{
+cart.push({...item,qty:1})
+}
 
 saveCart()
+
 }
 
 function saveCart(){
+
 localStorage.setItem("cart",JSON.stringify(cart))
 renderCart()
+
 }
 
 function renderCart(){
 
 const list=document.getElementById("cartItems")
-
 list.innerHTML=""
 
 let total=0
@@ -318,55 +414,74 @@ cart.forEach((item,i)=>{
 total+=item.price*item.qty
 
 list.innerHTML+=`
+
 <div class="cart-item">
+
 <div>
 ${item.name}<br>
-₹${item.price} x ${item.qty}
+₹${item.price} × ${item.qty}
 </div>
 
 <div class="qty">
+
 <button onclick="changeQty(${i},-1)">-</button>
 <button onclick="changeQty(${i},1)">+</button>
 <button onclick="removeItem(${i})">x</button>
+
 </div>
+
 </div>
+
 `
 
 })
 
-document.getElementById("total").innerText="Total: ₹"+total
 document.getElementById("cartCount").innerText=cart.length
+document.getElementById("totalPrice").innerText="Total: ₹"+total
 
 }
 
 function changeQty(i,val){
+
 cart[i].qty+=val
-if(cart[i].qty<=0) cart.splice(i,1)
+
+if(cart[i].qty<=0){
+cart.splice(i,1)
+}
+
 saveCart()
+
 }
 
 function removeItem(i){
+
 cart.splice(i,1)
+
 saveCart()
+
 }
 
 function toggleCart(){
+
 document.getElementById("cart").classList.toggle("open")
+
 }
 
 function prepareOrder(){
 
-let summary="Order Summary:\n\n"
+let summary="Order Details:\n\n"
 let total=0
 
 cart.forEach(item=>{
-summary+=`${item.name} x ${item.qty} = ₹${item.qty*item.price}\n`
-total+=item.qty*item.price
+
+summary+=`${item.name} x ${item.qty} = ₹${item.price*item.qty}\n`
+total+=item.price*item.qty
+
 })
 
 summary+=`\nTotal: ₹${total}`
 
-document.getElementById("orderDetails").value=summary
+document.getElementById("orderSummary").value=summary
 
 localStorage.removeItem("cart")
 
