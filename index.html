@@ -3,864 +3,381 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Shandilya Enterprises – Laddu Gopal Poshaks</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<title>SHANDILYA ENTERPRISES</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
 <style>
-  :root {
-    --saffron: #E8621A;
-    --gold: #C9922A;
-    --cream: #FDF6EC;
-    --deep: #2B1A0E;
-    --muted: #7A5C3F;
-    --pink: #F4B8C1;
-    --white: #FFFFFF;
-    --card-bg: #FFFAF4;
-    --border: #ECD9BB;
-    --success: #3A8A4A;
-    --radius: 14px;
-    --shadow: 0 4px 24px rgba(43,26,14,0.10);
-  }
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: 'Nunito', sans-serif; background: var(--cream); color: var(--deep); min-height: 100vh; }
-  a { text-decoration: none; color: inherit; }
-  img { display: block; }
+*{margin:0;padding:0;box-sizing:border-box;font-family:Poppins,sans-serif}
 
-  /* ── HEADER ── */
-  header {
-    background: var(--deep);
-    position: sticky; top: 0; z-index: 200;
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 10px 18px;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.25);
-  }
-  .header-brand { display: flex; align-items: center; gap: 12px; }
-  .header-brand img { width: 46px; height: 46px; border-radius: 50%; border: 2px solid var(--gold); object-fit: cover; }
-  .header-text .shop-name {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.25rem; font-weight: 600;
-    color: var(--gold); line-height: 1.1;
-    letter-spacing: 0.02em;
-  }
-  .header-text .tagline {
-    font-size: 0.65rem; color: var(--pink);
-    font-style: italic; line-height: 1.2;
-  }
-  .header-actions { display: flex; align-items: center; gap: 10px; }
-  .cart-btn {
-    position: relative; background: var(--saffron);
-    border: none; cursor: pointer; border-radius: 50px;
-    padding: 9px 16px; display: flex; align-items: center; gap: 7px;
-    color: #fff; font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 0.9rem;
-    transition: background 0.2s, transform 0.15s;
-  }
-  .cart-btn:hover { background: #c44e10; transform: scale(1.04); }
-  .cart-count {
-    background: var(--gold); color: #fff;
-    border-radius: 50%; width: 20px; height: 20px;
-    font-size: 0.72rem; font-weight: 700;
-    display: flex; align-items: center; justify-content: center;
-    min-width: 20px;
-  }
-  .cart-icon { font-size: 1.1rem; }
+body{background:#f7f8fc;color:#333}
 
-  /* ── HERO ── */
-  .hero {
-    width: 100%; aspect-ratio: 16/7; overflow: hidden; position: relative;
-    min-height: 180px; max-height: 420px;
-  }
-  .hero img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
-  .hero-overlay {
-    position: absolute; inset: 0;
-    background: linear-gradient(to bottom, rgba(43,26,14,0.15) 0%, rgba(43,26,14,0.55) 100%);
-    display: flex; flex-direction: column; align-items: center; justify-content: flex-end;
-    padding: 20px 16px 28px;
-    text-align: center;
-  }
-  .hero-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(1.5rem, 5vw, 2.8rem);
-    color: #fff; font-weight: 600; letter-spacing: 0.04em;
-    text-shadow: 0 2px 12px rgba(0,0,0,0.5);
-    line-height: 1.15;
-  }
-  .hero-sub {
-    font-size: clamp(0.75rem, 2.5vw, 1rem);
-    color: var(--pink); margin-top: 6px;
-    font-style: italic; text-shadow: 0 1px 6px rgba(0,0,0,0.4);
-  }
+header{
+background:white;
+padding:15px;
+text-align:center;
+box-shadow:0 2px 10px rgba(0,0,0,.1);
+}
 
-  /* ── FILTERS ── */
-  .filters-section { padding: 18px 14px 8px; }
-  .filters-label {
-    font-size: 0.75rem; font-weight: 700; color: var(--muted);
-    text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 10px;
-  }
-  .filters {
-    display: flex; gap: 8px; overflow-x: auto; padding-bottom: 4px;
-    scrollbar-width: none;
-  }
-  .filters::-webkit-scrollbar { display: none; }
-  .filter-btn {
-    border: 2px solid var(--border); background: var(--white);
-    border-radius: 50px; padding: 7px 16px;
-    font-family: 'Nunito', sans-serif; font-size: 0.8rem; font-weight: 700;
-    color: var(--muted); cursor: pointer; white-space: nowrap;
-    transition: all 0.2s;
-  }
-  .filter-btn.active, .filter-btn:hover {
-    background: var(--saffron); border-color: var(--saffron);
-    color: #fff; box-shadow: 0 2px 10px rgba(232,98,26,0.25);
-  }
+header img{height:60px}
 
-  /* ── PRODUCTS GRID ── */
-  .section-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.5rem; color: var(--deep); font-weight: 600;
-    padding: 8px 16px 2px; letter-spacing: 0.02em;
-  }
-  .divider {
-    height: 2px;
-    background: linear-gradient(to right, var(--gold), transparent);
-    margin: 0 16px 14px; border-radius: 2px;
-  }
-  .products-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 14px; padding: 0 12px 100px;
-  }
-  @media(min-width: 600px) { .products-grid { grid-template-columns: repeat(3, 1fr); } }
-  @media(min-width: 900px) { .products-grid { grid-template-columns: repeat(4, 1fr); } }
+.tagline{font-size:14px;color:#666}
 
-  .product-card {
-    background: var(--card-bg);
-    border-radius: var(--radius);
-    border: 1px solid var(--border);
-    overflow: hidden;
-    box-shadow: var(--shadow);
-    transition: transform 0.2s, box-shadow 0.2s;
-    display: flex; flex-direction: column;
-  }
-  .product-card:hover { transform: translateY(-4px); box-shadow: 0 10px 32px rgba(43,26,14,0.16); }
-  .product-card.hidden { display: none; }
+.hero{
+width:100%;
+height:250px;
+background:url("https://i.ibb.co/mCDcJT7q/Gemini-Generated-Image-hcibhehcibhehcib.png") center/cover;
+}
 
-  .product-img-wrap {
-    width: 100%; aspect-ratio: 3/4; overflow: hidden; position: relative;
-  }
-  .product-img-wrap img {
-    width: 100%; height: 100%; object-fit: cover;
-    transition: transform 0.4s ease;
-  }
-  .product-card:hover .product-img-wrap img { transform: scale(1.06); }
-  .product-badge {
-    position: absolute; top: 8px; left: 8px;
-    background: var(--saffron); color: #fff;
-    font-size: 0.6rem; font-weight: 700; text-transform: uppercase;
-    letter-spacing: 0.08em; padding: 3px 8px; border-radius: 50px;
-  }
+.filters{
+display:flex;
+gap:10px;
+padding:15px;
+justify-content:center;
+flex-wrap:wrap;
+}
 
-  .product-info { padding: 10px 11px 13px; flex: 1; display: flex; flex-direction: column; }
-  .product-name {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 0.98rem; font-weight: 600; color: var(--deep);
-    line-height: 1.3; margin-bottom: 4px;
-  }
-  .product-desc {
-    font-size: 0.7rem; color: var(--muted); line-height: 1.4; margin-bottom: 8px; flex: 1;
-  }
-  .product-footer { display: flex; align-items: center; justify-content: space-between; gap: 6px; }
-  .product-price {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.15rem; font-weight: 600; color: var(--gold);
-  }
-  .add-to-cart-btn {
-    background: var(--saffron); color: #fff;
-    border: none; cursor: pointer;
-    border-radius: 8px; padding: 7px 13px;
-    font-family: 'Nunito', sans-serif; font-size: 0.75rem; font-weight: 700;
-    transition: background 0.2s, transform 0.15s;
-    white-space: nowrap;
-  }
-  .add-to-cart-btn:hover { background: #c44e10; transform: scale(1.05); }
-  .add-to-cart-btn.added { background: var(--success); animation: popIn 0.3s ease; }
-  @keyframes popIn {
-    0%{transform:scale(1)} 50%{transform:scale(1.18)} 100%{transform:scale(1)}
-  }
+.filters button{
+padding:8px 14px;
+border:none;
+background:#eee;
+border-radius:20px;
+cursor:pointer;
+}
 
-  /* ── CART MODAL ── */
-  .cart-overlay {
-    display: none; position: fixed; inset: 0; z-index: 500;
-    background: rgba(43,26,14,0.5); backdrop-filter: blur(3px);
-    align-items: flex-end; justify-content: center;
-  }
-  .cart-overlay.open { display: flex; }
-  .cart-modal {
-    background: var(--white); width: 100%; max-width: 540px;
-    border-radius: 22px 22px 0 0;
-    max-height: 92vh; display: flex; flex-direction: column;
-    animation: slideUp 0.32s cubic-bezier(0.34,1.56,0.64,1);
-    box-shadow: 0 -8px 40px rgba(43,26,14,0.25);
-  }
-  @keyframes slideUp { from { transform: translateY(100%); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
-  .cart-header {
-    padding: 18px 20px 14px;
-    border-bottom: 1px solid var(--border);
-    display: flex; align-items: center; justify-content: space-between;
-  }
-  .cart-header-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.4rem; font-weight: 600; color: var(--deep);
-  }
-  .cart-close {
-    background: var(--cream); border: none; cursor: pointer;
-    width: 34px; height: 34px; border-radius: 50%;
-    font-size: 1.1rem; color: var(--muted);
-    display: flex; align-items: center; justify-content: center;
-    transition: background 0.2s;
-  }
-  .cart-close:hover { background: var(--border); }
-  .cart-items { overflow-y: auto; flex: 1; padding: 12px 16px; }
-  .cart-empty { text-align: center; padding: 40px 20px; color: var(--muted); }
-  .cart-empty-icon { font-size: 3rem; margin-bottom: 10px; }
-  .cart-empty p { font-size: 1rem; }
+.filters button.active{background:#ff6b6b;color:white}
 
-  .cart-item {
-    display: flex; gap: 12px; padding: 12px 0;
-    border-bottom: 1px solid var(--border); align-items: flex-start;
-  }
-  .cart-item img { width: 60px; height: 72px; object-fit: cover; border-radius: 8px; flex-shrink: 0; }
-  .cart-item-info { flex: 1; }
-  .cart-item-name { font-weight: 700; font-size: 0.88rem; color: var(--deep); margin-bottom: 4px; line-height: 1.3; }
-  .cart-item-price { font-family: 'Cormorant Garamond', serif; font-size: 1rem; color: var(--gold); font-weight: 600; margin-bottom: 8px; }
-  .qty-controls { display: flex; align-items: center; gap: 8px; }
-  .qty-btn {
-    width: 28px; height: 28px; border-radius: 50%;
-    border: 2px solid var(--border); background: var(--cream);
-    cursor: pointer; font-size: 1rem; font-weight: 700;
-    display: flex; align-items: center; justify-content: center;
-    color: var(--deep); transition: all 0.15s; line-height: 1;
-  }
-  .qty-btn:hover { border-color: var(--saffron); color: var(--saffron); }
-  .qty-val { font-weight: 700; font-size: 0.95rem; min-width: 20px; text-align: center; }
-  .remove-btn {
-    background: none; border: none; cursor: pointer;
-    font-size: 1.2rem; color: #ccc; padding: 2px;
-    transition: color 0.2s;
-  }
-  .remove-btn:hover { color: #e74c3c; }
-  .item-subtotal { font-size: 0.8rem; color: var(--muted); margin-top: 4px; }
+.products{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+gap:15px;
+padding:15px;
+}
 
-  .cart-footer { padding: 14px 18px 20px; border-top: 1px solid var(--border); }
-  .cart-total-row {
-    display: flex; justify-content: space-between; align-items: center;
-    margin-bottom: 14px;
-  }
-  .cart-total-label { font-weight: 700; font-size: 1rem; color: var(--muted); }
-  .cart-total-amount {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.5rem; font-weight: 600; color: var(--deep);
-  }
-  .checkout-btn {
-    width: 100%; background: var(--saffron); color: #fff;
-    border: none; cursor: pointer; border-radius: 12px;
-    padding: 14px; font-family: 'Nunito', sans-serif;
-    font-size: 1rem; font-weight: 700;
-    transition: background 0.2s, transform 0.15s;
-    letter-spacing: 0.03em;
-  }
-  .checkout-btn:hover { background: #c44e10; transform: scale(1.02); }
-  .checkout-btn:disabled { background: #ccc; cursor: not-allowed; transform: none; }
+.card{
+background:white;
+border-radius:12px;
+padding:10px;
+box-shadow:0 2px 8px rgba(0,0,0,.08);
+text-align:center;
+}
 
-  /* ── CHECKOUT MODAL ── */
-  .checkout-overlay {
-    display: none; position: fixed; inset: 0; z-index: 600;
-    background: rgba(43,26,14,0.6); backdrop-filter: blur(4px);
-    align-items: center; justify-content: center; padding: 16px;
-  }
-  .checkout-overlay.open { display: flex; }
-  .checkout-modal {
-    background: var(--white); width: 100%; max-width: 480px;
-    border-radius: 20px; overflow: hidden;
-    animation: popIn 0.3s ease;
-    max-height: 95vh; display: flex; flex-direction: column;
-    box-shadow: 0 8px 48px rgba(43,26,14,0.3);
-  }
-  .checkout-header {
-    background: var(--deep); padding: 20px 22px;
-    display: flex; align-items: center; justify-content: space-between;
-  }
-  .checkout-header-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.4rem; color: var(--gold); font-weight: 600;
-  }
-  .checkout-close {
-    background: rgba(255,255,255,0.1); border: none; cursor: pointer;
-    width: 32px; height: 32px; border-radius: 50%;
-    font-size: 1rem; color: #fff;
-    display: flex; align-items: center; justify-content: center;
-    transition: background 0.2s;
-  }
-  .checkout-close:hover { background: rgba(255,255,255,0.25); }
-  .checkout-body { padding: 20px 22px; overflow-y: auto; flex: 1; }
-  .order-summary-mini {
-    background: var(--cream); border-radius: 10px;
-    padding: 12px 14px; margin-bottom: 18px;
-    border: 1px solid var(--border);
-  }
-  .order-summary-mini-title { font-weight: 700; font-size: 0.8rem; color: var(--muted); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.08em; }
-  .order-summary-mini-item { font-size: 0.82rem; color: var(--deep); display: flex; justify-content: space-between; padding: 3px 0; }
-  .order-summary-mini-total { font-weight: 700; font-size: 0.9rem; color: var(--saffron); border-top: 1px dashed var(--border); margin-top: 6px; padding-top: 6px; display: flex; justify-content: space-between; }
+.card img{
+width:100%;
+border-radius:10px;
+height:160px;
+object-fit:cover;
+}
 
-  .form-group { margin-bottom: 16px; }
-  .form-label { display: block; font-size: 0.82rem; font-weight: 700; color: var(--muted); margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.07em; }
-  .form-input, .form-textarea {
-    width: 100%; border: 2px solid var(--border);
-    border-radius: 10px; padding: 11px 14px;
-    font-family: 'Nunito', sans-serif; font-size: 0.9rem; color: var(--deep);
-    background: var(--cream); outline: none;
-    transition: border-color 0.2s;
-  }
-  .form-input:focus, .form-textarea:focus { border-color: var(--saffron); background: #fff; }
-  .form-textarea { min-height: 80px; resize: vertical; }
-  .place-order-btn {
-    width: 100%; background: var(--saffron); color: #fff;
-    border: none; cursor: pointer; border-radius: 12px;
-    padding: 15px; font-family: 'Nunito', sans-serif;
-    font-size: 1rem; font-weight: 700;
-    transition: background 0.2s; margin-top: 6px;
-    display: flex; align-items: center; justify-content: center; gap: 8px;
-  }
-  .place-order-btn:hover { background: #c44e10; }
-  .place-order-btn:disabled { background: #ccc; cursor: not-allowed; }
-  .form-note { font-size: 0.72rem; color: var(--muted); margin-top: 10px; text-align: center; line-height: 1.5; }
+.card h4{font-size:14px;margin:8px 0}
 
-  /* ── SUCCESS ── */
-  .success-overlay {
-    display: none; position: fixed; inset: 0; z-index: 700;
-    background: rgba(43,26,14,0.7); backdrop-filter: blur(5px);
-    align-items: center; justify-content: center; padding: 20px;
-  }
-  .success-overlay.open { display: flex; }
-  .success-modal {
-    background: var(--white); border-radius: 22px; max-width: 380px; width: 100%;
-    text-align: center; padding: 36px 28px;
-    animation: popIn 0.4s cubic-bezier(0.34,1.56,0.64,1);
-    box-shadow: 0 8px 48px rgba(43,26,14,0.3);
-  }
-  .success-icon { font-size: 3.5rem; margin-bottom: 14px; }
-  .success-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.7rem; font-weight: 600; color: var(--success);
-    margin-bottom: 10px;
-  }
-  .success-msg { font-size: 0.9rem; color: var(--muted); line-height: 1.6; margin-bottom: 22px; }
-  .whatsapp-link-btn {
-    display: inline-flex; align-items: center; gap: 8px;
-    background: #25D366; color: #fff;
-    padding: 12px 24px; border-radius: 50px;
-    font-weight: 700; font-size: 0.9rem; margin-bottom: 12px;
-    transition: background 0.2s;
-  }
-  .whatsapp-link-btn:hover { background: #1ebd59; }
-  .success-close-btn {
-    display: block; margin-top: 12px;
-    background: none; border: none; cursor: pointer;
-    color: var(--muted); font-size: 0.85rem; font-family: 'Nunito', sans-serif;
-    text-decoration: underline;
-  }
+.price{color:#ff6b6b;font-weight:600}
 
-  /* ── FLOATING WHATSAPP ── */
-  .whatsapp-float {
-    position: fixed; bottom: 24px; left: 18px; z-index: 300;
-    background: #25D366; color: #fff;
-    width: 52px; height: 52px; border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 1.5rem; box-shadow: 0 4px 18px rgba(37,211,102,0.45);
-    transition: transform 0.2s, box-shadow 0.2s;
-  }
-  .whatsapp-float:hover { transform: scale(1.1); box-shadow: 0 6px 24px rgba(37,211,102,0.55); }
+button.add{
+margin-top:5px;
+padding:8px;
+width:100%;
+border:none;
+background:#2d6cdf;
+color:white;
+border-radius:8px;
+cursor:pointer;
+}
 
-  /* ── FOOTER ── */
-  footer {
-    background: var(--deep); color: var(--pink);
-    text-align: center; padding: 28px 20px;
-    font-size: 0.8rem; line-height: 1.9;
-  }
-  footer strong { color: var(--gold); }
-  footer a { color: #25D366; }
+.cart-btn{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#2d6cdf;
+color:white;
+border-radius:50%;
+width:60px;
+height:60px;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:22px;
+cursor:pointer;
+box-shadow:0 5px 15px rgba(0,0,0,.2);
+}
 
-  /* ── MISC ── */
-  .no-results {
-    text-align: center; padding: 40px 20px; color: var(--muted);
-    grid-column: 1 / -1;
-    font-family: 'Cormorant Garamond', serif; font-size: 1.1rem;
-  }
+.cart-count{
+position:absolute;
+top:-5px;
+right:-5px;
+background:red;
+color:white;
+font-size:12px;
+padding:3px 6px;
+border-radius:50%;
+}
+
+.cart{
+position:fixed;
+right:-400px;
+top:0;
+width:320px;
+height:100%;
+background:white;
+box-shadow:-2px 0 15px rgba(0,0,0,.2);
+padding:15px;
+overflow:auto;
+transition:.3s;
+z-index:999;
+}
+
+.cart.open{right:0}
+
+.cart-item{
+display:flex;
+justify-content:space-between;
+margin:10px 0;
+font-size:14px;
+}
+
+.qty button{
+padding:2px 6px;
+margin:0 3px;
+}
+
+.total{
+font-weight:bold;
+margin:10px 0;
+}
+
+.checkout input,.checkout textarea{
+width:100%;
+margin:5px 0;
+padding:8px;
+border:1px solid #ccc;
+border-radius:6px;
+}
+
+.checkout button{
+width:100%;
+background:#28a745;
+color:white;
+border:none;
+padding:10px;
+border-radius:8px;
+margin-top:8px;
+cursor:pointer;
+}
+
+.whatsapp{
+position:fixed;
+bottom:20px;
+left:20px;
+background:#25D366;
+color:white;
+padding:12px 16px;
+border-radius:30px;
+text-decoration:none;
+font-size:14px;
+box-shadow:0 5px 15px rgba(0,0,0,.2);
+}
 </style>
 </head>
+
 <body>
 
-<!-- HEADER -->
 <header>
-  <div class="header-brand">
-    <img src="https://i.ibb.co/6RdZ1ZQZ/Whats-App-Image-2026-03-08-at-4-42-29-PM.jpg" alt="Shandilya Enterprises Logo" loading="lazy">
-    <div class="header-text">
-      <div class="shop-name">Shandilya Enterprises</div>
-      <div class="tagline">Beautiful Poshaks for Your Beloved Laddu Gopal</div>
-    </div>
-  </div>
-  <div class="header-actions">
-    <button class="cart-btn" onclick="openCart()">
-      <span class="cart-icon">🛒</span>
-      Cart
-      <span class="cart-count" id="cartCount">0</span>
-    </button>
-  </div>
+<img src="https://i.ibb.co/6RdZ1ZQZ/Whats-App-Image-2026-03-08-at-4-42-29-PM.jpg">
+<h2>SHANDILYA ENTERPRISES</h2>
+<div class="tagline">Beautiful Poshaks for Your Beloved Laddu Gopal</div>
 </header>
 
-<!-- HERO -->
-<div class="hero">
-  <img src="https://i.ibb.co/mCDcJT7q/Gemini-Generated-Image-hcibhehcibhehcib.png" alt="Shandilya Enterprises Hero Banner" loading="eager">
-  <div class="hero-overlay">
-    <div class="hero-title">Divine Poshaks for Laddu Gopal</div>
-    <div class="hero-sub">Handcrafted with devotion & love ✨</div>
-  </div>
+<div class="hero"></div>
+
+<div class="filters">
+<button class="active" onclick="filterProducts('all')">All</button>
+<button onclick="filterProducts('Laddu Gopal Poshak')">Laddu Gopal Poshak</button>
 </div>
 
-<!-- FILTERS -->
-<div class="filters-section">
-  <div class="filters-label">Shop by Category</div>
-  <div class="filters" id="filterRow">
-    <button class="filter-btn active" data-cat="All">All</button>
-    <button class="filter-btn" data-cat="Embroidery Poshaks">Embroidery</button>
-    <button class="filter-btn" data-cat="Fancy Hand work Poshaks">Fancy Handwork</button>
-    <button class="filter-btn" data-cat="Jariwork Poshaks">Jariwork</button>
-    <button class="filter-btn" data-cat="Premium Poshaks">Premium</button>
-    <button class="filter-btn" data-cat="Laddu Gopal Poshak">All Poshaks</button>
-  </div>
+<div class="products" id="productList"></div>
+
+<div class="cart-btn" onclick="toggleCart()">
+🛒
+<span class="cart-count" id="cartCount">0</span>
 </div>
 
-<!-- PRODUCTS -->
-<div class="section-title">Our Collection</div>
-<div class="divider"></div>
-<div class="products-grid" id="productsGrid"></div>
+<div class="cart" id="cart">
+<h3>Your Cart</h3>
+<div id="cartItems"></div>
+<div class="total" id="total"></div>
 
-<!-- FLOATING WHATSAPP -->
-<a class="whatsapp-float" href="https://wa.me/919761133303" target="_blank" title="Chat on WhatsApp">
-  <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="white">
-    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-  </svg>
+<form class="checkout" action="https://formspree.io/f/myknzbyz" method="POST" onsubmit="prepareOrder()">
+
+<input name="name" placeholder="Customer Name" required>
+<input name="phone" placeholder="Phone Number" required>
+<textarea name="address" placeholder="Delivery Address" required></textarea>
+<textarea name="instructions" placeholder="Special Instructions"></textarea>
+
+<input type="hidden" name="order_details" id="orderDetails">
+
+<button type="submit">Place Order</button>
+
+</form>
+</div>
+
+<a class="whatsapp" href="https://wa.me/919761133303" target="_blank">
+Chat on WhatsApp
 </a>
 
-<!-- CART MODAL -->
-<div class="cart-overlay" id="cartOverlay" onclick="handleCartOverlayClick(event)">
-  <div class="cart-modal" id="cartModal">
-    <div class="cart-header">
-      <div class="cart-header-title">🛒 Your Cart</div>
-      <button class="cart-close" onclick="closeCart()">✕</button>
-    </div>
-    <div class="cart-items" id="cartItemsContainer"></div>
-    <div class="cart-footer" id="cartFooter">
-      <div class="cart-total-row">
-        <span class="cart-total-label">Grand Total</span>
-        <span class="cart-total-amount" id="cartGrandTotal">₹0</span>
-      </div>
-      <button class="checkout-btn" id="checkoutBtn" onclick="openCheckout()">Proceed to Order</button>
-    </div>
-  </div>
-</div>
-
-<!-- CHECKOUT MODAL -->
-<div class="checkout-overlay" id="checkoutOverlay">
-  <div class="checkout-modal">
-    <div class="checkout-header">
-      <div class="checkout-header-title">Place Your Order</div>
-      <button class="checkout-close" onclick="closeCheckout()">✕</button>
-    </div>
-    <div class="checkout-body">
-      <div class="order-summary-mini">
-        <div class="order-summary-mini-title">Order Summary</div>
-        <div id="miniOrderSummary"></div>
-        <div class="order-summary-mini-total">
-          <span>Total</span><span id="miniTotal">₹0</span>
-        </div>
-      </div>
-      <form id="orderForm" action="https://formspree.io/f/myknzbyz" method="POST" onsubmit="handleOrderSubmit(event)">
-        <!-- Hidden fields for order data -->
-        <input type="hidden" name="_subject" id="emailSubject" value="New Order from Shandilya Enterprises">
-        <input type="hidden" name="Order Details" id="hiddenOrderDetails">
-        <input type="hidden" name="Shop" value="Shandilya Enterprises">
-
-        <div class="form-group">
-          <label class="form-label" for="custName">Your Name *</label>
-          <input class="form-input" type="text" id="custName" name="Customer Name" placeholder="e.g. Priya Sharma" required>
-        </div>
-        <div class="form-group">
-          <label class="form-label" for="custPhone">Phone Number *</label>
-          <input class="form-input" type="tel" id="custPhone" name="Phone Number" placeholder="e.g. 9876543210" required>
-        </div>
-        <div class="form-group">
-          <label class="form-label" for="custAddress">Delivery Address *</label>
-          <textarea class="form-textarea" id="custAddress" name="Delivery Address" placeholder="Full address with city and pincode" required></textarea>
-        </div>
-        <div class="form-group">
-          <label class="form-label" for="custNote">Special Instructions</label>
-          <textarea class="form-textarea" id="custNote" name="Special Instructions" placeholder="e.g. Size of Laddu Gopal, preferred color, etc." style="min-height:60px"></textarea>
-        </div>
-        <button type="submit" class="place-order-btn" id="placeOrderBtn">
-          <span>🙏</span> Place Order
-        </button>
-        <p class="form-note">📦 No payment now. We'll contact you on WhatsApp to confirm your order, availability & delivery details.</p>
-      </form>
-    </div>
-  </div>
-</div>
-
-<!-- SUCCESS MODAL -->
-<div class="success-overlay" id="successOverlay">
-  <div class="success-modal">
-    <div class="success-icon">🙏</div>
-    <div class="success-title">Order Placed!</div>
-    <div class="success-msg">
-      Thank you! <strong>Shandilya Enterprises</strong> will contact you on WhatsApp to confirm your order, availability, and delivery details.
-    </div>
-    <a class="whatsapp-link-btn" href="https://wa.me/919761133303" target="_blank">
-      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-      Message on WhatsApp
-    </a>
-    <button class="success-close-btn" onclick="closeSuccess()">Close & Continue Shopping</button>
-  </div>
-</div>
-
-<!-- FOOTER -->
-<footer>
-  <strong>Shandilya Enterprises</strong><br>
-  Lal Kurti, Chotta Bazar, Meerut Cantt – 250001<br>
-  📞 <a href="tel:+919761133303">+91 97611 33303</a> &nbsp;|&nbsp;
-  ✉️ <a href="mailto:Adityashandilya90@gmail.com">Adityashandilya90@gmail.com</a><br>
-  <a href="https://wa.me/919761133303" target="_blank">💬 Chat on WhatsApp</a><br><br>
-  <small style="color:#7A5C3F">© 2026 Shandilya Enterprises. All rights reserved.</small>
-</footer>
-
 <script>
-// ── PRODUCTS DATA ──
-const products = [
-  {
-    id: 1,
-    name: "Yellow Red Floral Krishna Ji Poshak",
-    price: 199,
-    category: "Laddu Gopal Poshak",
-    image: "https://i.ibb.co/JRvyfyNN/Whats-App-Image-2026-03-08-at-3-57-18-PM.jpg",
-    desc: "Bright yellow and red handcrafted floral poshak perfect for festive darshan.",
-    badge: "Bestseller"
-  },
-  {
-    id: 2,
-    name: "Multicolor Layered Krishna Ji Poshak",
-    price: 219,
-    category: "Fancy Hand work Poshaks",
-    image: "https://i.ibb.co/vxxyxQqK/Whats-App-Image-2026-03-08-at-3-57-19-PM-1.jpg",
-    desc: "Beautiful multi-layer poshak with blue, yellow and white petals for a divine festive look.",
-    badge: "New"
-  },
-  {
-    id: 3,
-    name: "Red White Designer Krishna Ji Poshak",
-    price: 199,
-    category: "Embroidery Poshaks",
-    image: "https://i.ibb.co/BVLFMQ5X/Whats-App-Image-2026-03-08-at-3-57-19-PM-2.jpg",
-    desc: "Elegant red and white designer poshak crafted with decorative net fabric for Thakur Ji.",
-    badge: ""
-  },
-  {
-    id: 4,
-    name: "Sky Blue Lotus Style Krishna Ji Poshak",
-    price: 189,
-    category: "Jariwork Poshaks",
-    image: "https://i.ibb.co/r2tHWCQJ/Whats-App-Image-2026-03-08-at-3-57-19-PM-3.jpg",
-    desc: "Sky blue lotus style poshak giving a royal and graceful appearance to Laddu Gopal.",
-    badge: ""
-  },
-  {
-    id: 5,
-    name: "Pink Flower Premium Krishna Ji Poshak",
-    price: 209,
-    category: "Premium Poshaks",
-    image: "https://i.ibb.co/xS2X7pdJ/Whats-App-Image-2026-03-08-at-3-57-19-PM.jpg",
-    desc: "Soft pink floral poshak designed to give a charming and devotional look.",
-    badge: "Premium"
-  },
-  {
-    id: 6,
-    name: "Golden Zari Embroidery Poshak",
-    price: 249,
-    category: "Jariwork Poshaks",
-    image: "https://i.ibb.co/JRvyfyNN/Whats-App-Image-2026-03-08-at-3-57-18-PM.jpg",
-    desc: "Rich golden zari work poshak for special occasions and festival celebrations.",
-    badge: "Special"
-  },
-  {
-    id: 7,
-    name: "Purple Velvet Fancy Poshak",
-    price: 229,
-    category: "Fancy Hand work Poshaks",
-    image: "https://i.ibb.co/vxxyxQqK/Whats-App-Image-2026-03-08-at-3-57-19-PM-1.jpg",
-    desc: "Luxurious purple velvet poshak with intricate hand embroidery detailing.",
-    badge: "Luxury"
-  },
-  {
-    id: 8,
-    name: "Green Leheriya Embroidery Poshak",
-    price: 199,
-    category: "Embroidery Poshaks",
-    image: "https://i.ibb.co/BVLFMQ5X/Whats-App-Image-2026-03-08-at-3-57-19-PM-2.jpg",
-    desc: "Fresh green leheriya pattern poshak with beautiful hand embroidery work.",
-    badge: ""
-  }
-];
 
-// ── CART STATE ──
-let cart = JSON.parse(localStorage.getItem('shandilyaCart') || '[]');
+const products=[
+{
+name:"Yellow Red Floral Krishna Ji Poshak",
+price:199,
+cat:"Laddu Gopal Poshak",
+img:"https://i.ibb.co/JRvyfyNN/Whats-App-Image-2026-03-08-at-3-57-18-PM.jpg"
+},
+{
+name:"Multicolor Layered Krishna Ji Poshak",
+price:219,
+cat:"Laddu Gopal Poshak",
+img:"https://i.ibb.co/vxxyxQqK/Whats-App-Image-2026-03-08-at-3-57-19-PM-1.jpg"
+},
+{
+name:"Red White Designer Krishna Ji Poshak",
+price:199,
+cat:"Laddu Gopal Poshak",
+img:"https://i.ibb.co/BVLFMQ5X/Whats-App-Image-2026-03-08-at-3-57-19-PM-2.jpg"
+},
+{
+name:"Sky Blue Lotus Style Krishna Ji Poshak",
+price:189,
+cat:"Laddu Gopal Poshak",
+img:"https://i.ibb.co/r2tHWCQJ/Whats-App-Image-2026-03-08-at-3-57-19-PM-3.jpg"
+},
+{
+name:"Pink Flower Premium Krishna Ji Poshak",
+price:209,
+cat:"Laddu Gopal Poshak",
+img:"https://i.ibb.co/xS2X7pdJ/Whats-App-Image-2026-03-08-at-3-57-19-PM.jpg"
+}
+]
 
-function saveCart() {
-  localStorage.setItem('shandilyaCart', JSON.stringify(cart));
+let cart=JSON.parse(localStorage.getItem("cart"))||[]
+
+function renderProducts(list){
+const container=document.getElementById("productList")
+container.innerHTML=""
+
+list.forEach((p,i)=>{
+
+container.innerHTML+=`
+<div class="card">
+<img src="${p.img}" loading="lazy" alt="${p.name}">
+<h4>${p.name}</h4>
+<div class="price">₹${p.price}</div>
+<button class="add" onclick="addCart(${i})">Add to Cart</button>
+</div>
+`
+
+})
+
 }
 
-// ── RENDER PRODUCTS ──
-function renderProducts(filter = 'All') {
-  const grid = document.getElementById('productsGrid');
-  const filtered = filter === 'All' ? products : products.filter(p => p.category === filter);
-  if (filtered.length === 0) {
-    grid.innerHTML = '<div class="no-results">No products found in this category.</div>';
-    return;
-  }
-  grid.innerHTML = filtered.map(p => `
-    <div class="product-card" id="card-${p.id}">
-      <div class="product-img-wrap">
-        <img src="${p.image}" alt="${p.name}" loading="lazy">
-        ${p.badge ? `<span class="product-badge">${p.badge}</span>` : ''}
-      </div>
-      <div class="product-info">
-        <div class="product-name">${p.name}</div>
-        <div class="product-desc">${p.desc}</div>
-        <div class="product-footer">
-          <span class="product-price">₹${p.price}</span>
-          <button class="add-to-cart-btn" id="atcBtn-${p.id}" onclick="addToCart(${p.id})">+ Add</button>
-        </div>
-      </div>
-    </div>
-  `).join('');
-  updateCartBtnStates();
+function filterProducts(cat){
+document.querySelectorAll(".filters button").forEach(b=>b.classList.remove("active"))
+event.target.classList.add("active")
+
+if(cat=="all") renderProducts(products)
+else renderProducts(products.filter(p=>p.cat==cat))
 }
 
-function updateCartBtnStates() {
-  products.forEach(p => {
-    const btn = document.getElementById(`atcBtn-${p.id}`);
-    if (!btn) return;
-    const inCart = cart.find(c => c.id === p.id);
-    if (inCart) {
-      btn.textContent = '✓ Added';
-      btn.classList.add('added');
-    } else {
-      btn.textContent = '+ Add';
-      btn.classList.remove('added');
-    }
-  });
+function addCart(i){
+
+const p=products[i]
+
+const found=cart.find(x=>x.name==p.name)
+
+if(found) found.qty++
+else cart.push({...p,qty:1})
+
+saveCart()
 }
 
-// ── FILTER LOGIC ──
-document.getElementById('filterRow').addEventListener('click', function(e) {
-  if (!e.target.classList.contains('filter-btn')) return;
-  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-  e.target.classList.add('active');
-  renderProducts(e.target.dataset.cat);
-});
-
-// ── CART OPERATIONS ──
-function addToCart(id) {
-  const product = products.find(p => p.id === id);
-  if (!product) return;
-  const existing = cart.find(c => c.id === id);
-  if (existing) {
-    existing.qty += 1;
-  } else {
-    cart.push({ id: product.id, name: product.name, price: product.price, image: product.image, qty: 1 });
-  }
-  saveCart();
-  updateCartCount();
-  updateCartBtnStates();
-  // Brief bounce animation
-  const btn = document.getElementById(`atcBtn-${id}`);
-  if (btn) {
-    btn.textContent = '✓ Added';
-    btn.classList.add('added');
-  }
+function saveCart(){
+localStorage.setItem("cart",JSON.stringify(cart))
+renderCart()
 }
 
-function removeFromCart(id) {
-  cart = cart.filter(c => c.id !== id);
-  saveCart();
-  updateCartCount();
-  updateCartBtnStates();
-  renderCartItems();
+function renderCart(){
+
+const list=document.getElementById("cartItems")
+
+list.innerHTML=""
+
+let total=0
+
+cart.forEach((item,i)=>{
+
+total+=item.price*item.qty
+
+list.innerHTML+=`
+<div class="cart-item">
+<div>
+${item.name}<br>
+₹${item.price} x ${item.qty}
+</div>
+
+<div class="qty">
+<button onclick="changeQty(${i},-1)">-</button>
+<button onclick="changeQty(${i},1)">+</button>
+<button onclick="removeItem(${i})">x</button>
+</div>
+</div>
+`
+
+})
+
+document.getElementById("total").innerText="Total: ₹"+total
+document.getElementById("cartCount").innerText=cart.length
+
 }
 
-function changeQty(id, delta) {
-  const item = cart.find(c => c.id === id);
-  if (!item) return;
-  item.qty += delta;
-  if (item.qty <= 0) {
-    removeFromCart(id);
-    return;
-  }
-  saveCart();
-  updateCartCount();
-  renderCartItems();
+function changeQty(i,val){
+cart[i].qty+=val
+if(cart[i].qty<=0) cart.splice(i,1)
+saveCart()
 }
 
-function getTotal() {
-  return cart.reduce((sum, c) => sum + c.price * c.qty, 0);
+function removeItem(i){
+cart.splice(i,1)
+saveCart()
 }
 
-function getTotalQty() {
-  return cart.reduce((sum, c) => sum + c.qty, 0);
+function toggleCart(){
+document.getElementById("cart").classList.toggle("open")
 }
 
-function updateCartCount() {
-  const count = getTotalQty();
-  document.getElementById('cartCount').textContent = count;
+function prepareOrder(){
+
+let summary="Order Summary:\n\n"
+let total=0
+
+cart.forEach(item=>{
+summary+=`${item.name} x ${item.qty} = ₹${item.qty*item.price}\n`
+total+=item.qty*item.price
+})
+
+summary+=`\nTotal: ₹${total}`
+
+document.getElementById("orderDetails").value=summary
+
+localStorage.removeItem("cart")
+
+alert("Order placed! SHANDILYA ENTERPRISES will contact you on WhatsApp to confirm.")
+
 }
 
-// ── RENDER CART ──
-function renderCartItems() {
-  const container = document.getElementById('cartItemsContainer');
-  const footer = document.getElementById('cartFooter');
-  const checkoutBtn = document.getElementById('checkoutBtn');
+renderProducts(products)
+renderCart()
 
-  if (cart.length === 0) {
-    container.innerHTML = `
-      <div class="cart-empty">
-        <div class="cart-empty-icon">🛕</div>
-        <p>Your cart is empty.<br>Add some beautiful poshaks!</p>
-      </div>`;
-    footer.style.display = 'none';
-    return;
-  }
-
-  footer.style.display = 'block';
-  container.innerHTML = cart.map(item => `
-    <div class="cart-item">
-      <img src="${item.image}" alt="${item.name}" loading="lazy">
-      <div class="cart-item-info">
-        <div class="cart-item-name">${item.name}</div>
-        <div class="cart-item-price">₹${item.price} each</div>
-        <div class="qty-controls">
-          <button class="qty-btn" onclick="changeQty(${item.id}, -1)">−</button>
-          <span class="qty-val">${item.qty}</span>
-          <button class="qty-btn" onclick="changeQty(${item.id}, 1)">+</button>
-        </div>
-        <div class="item-subtotal">Subtotal: ₹${item.price * item.qty}</div>
-      </div>
-      <button class="remove-btn" onclick="removeFromCart(${item.id})" title="Remove">🗑️</button>
-    </div>
-  `).join('');
-
-  document.getElementById('cartGrandTotal').textContent = '₹' + getTotal();
-  checkoutBtn.disabled = false;
-}
-
-// ── OPEN/CLOSE CART ──
-function openCart() {
-  renderCartItems();
-  document.getElementById('cartOverlay').classList.add('open');
-  document.body.style.overflow = 'hidden';
-}
-function closeCart() {
-  document.getElementById('cartOverlay').classList.remove('open');
-  document.body.style.overflow = '';
-}
-function handleCartOverlayClick(e) {
-  if (e.target === document.getElementById('cartOverlay')) closeCart();
-}
-
-// ── CHECKOUT ──
-function openCheckout() {
-  if (cart.length === 0) return;
-  // Populate mini summary
-  const mini = document.getElementById('miniOrderSummary');
-  mini.innerHTML = cart.map(item =>
-    `<div class="order-summary-mini-item"><span>${item.name} × ${item.qty}</span><span>₹${item.price * item.qty}</span></div>`
-  ).join('');
-  document.getElementById('miniTotal').textContent = '₹' + getTotal();
-  closeCart();
-  document.getElementById('checkoutOverlay').classList.add('open');
-  document.body.style.overflow = 'hidden';
-}
-function closeCheckout() {
-  document.getElementById('checkoutOverlay').classList.remove('open');
-  document.body.style.overflow = '';
-}
-
-// ── ORDER SUBMIT ──
-function handleOrderSubmit(e) {
-  e.preventDefault();
-  const btn = document.getElementById('placeOrderBtn');
-  btn.disabled = true;
-  btn.innerHTML = '<span>⏳</span> Sending...';
-
-  // Build order text for email
-  let orderText = '=== ORDER FROM SHANDILYA ENTERPRISES ===\n\n';
-  orderText += 'ITEMS ORDERED:\n';
-  cart.forEach(item => {
-    orderText += `• ${item.name} | Qty: ${item.qty} | Price: ₹${item.price} each | Subtotal: ₹${item.price * item.qty}\n`;
-  });
-  orderText += `\nGRAND TOTAL: ₹${getTotal()}\n`;
-  orderText += `\nCUSTOMER DETAILS:\n`;
-  orderText += `Name: ${document.getElementById('custName').value}\n`;
-  orderText += `Phone: ${document.getElementById('custPhone').value}\n`;
-  orderText += `Address: ${document.getElementById('custAddress').value}\n`;
-  orderText += `Instructions: ${document.getElementById('custNote').value || 'None'}\n`;
-
-  document.getElementById('hiddenOrderDetails').value = orderText;
-  document.getElementById('emailSubject').value =
-    `New Order – ₹${getTotal()} – ${document.getElementById('custName').value}`;
-
-  const form = document.getElementById('orderForm');
-  const formData = new FormData(form);
-
-  fetch(form.action, {
-    method: 'POST',
-    body: formData,
-    headers: { 'Accept': 'application/json' }
-  })
-  .then(res => {
-    if (res.ok) {
-      cart = [];
-      saveCart();
-      updateCartCount();
-      updateCartBtnStates();
-      closeCheckout();
-      document.getElementById('successOverlay').classList.add('open');
-      form.reset();
-    } else {
-      throw new Error('Form submission failed');
-    }
-  })
-  .catch(() => {
-    alert('❌ Could not send order. Please WhatsApp us directly at +91 97611 33303');
-  })
-  .finally(() => {
-    btn.disabled = false;
-    btn.innerHTML = '<span>🙏</span> Place Order';
-  });
-}
-
-function closeSuccess() {
-  document.getElementById('successOverlay').classList.remove('open');
-  document.body.style.overflow = '';
-}
-
-// ── INIT ──
-renderProducts();
-updateCartCount();
 </script>
+
 </body>
 </html>
